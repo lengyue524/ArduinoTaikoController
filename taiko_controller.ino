@@ -1,6 +1,6 @@
 #include <Keyboard.h>
 
-const int min_threshold = 20;
+const int min_threshold[4] = {20, 20, 20, 20};
 const long cd_length = 8000;
 const long cd_antireso_length = 8000;
 const float k_antireso = 0.85;
@@ -112,7 +112,7 @@ void loop() {
     }
   }
 
-  if (i_max == si && level_max > min_threshold) {
+  if (i_max == si && level_max > min_threshold[i_max]) {
     if (!pressed[i_max]) {
       if (stageresult) {
         Keyboard.press(KEY_ESC);
